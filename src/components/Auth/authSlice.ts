@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction, AsyncThunk, AnyAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { signupFormData, loginFormData, IServerData } from '../../app/types';

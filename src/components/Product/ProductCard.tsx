@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardMedia, CardActions, Typography, CardContent, Button, CircularProgress } from '@mui/material';
+import { Card, CardActionArea, CardMedia, CardActions, Typography, CardContent, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { ProductListing } from '../../app/types';
 import { useAppDispatch } from '../../app/hooks';
@@ -6,7 +6,6 @@ import { deleteProduct, productFailure, writeProductSuccess } from './productSli
 
 const ProductCard = ({ sku, title, image }: ProductListing) => {
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const handleDelete = async () => {
         const deleteRes = await dispatch(deleteProduct(sku));
         if (deleteRes.type === 'products/deleteProduct/rejected') {

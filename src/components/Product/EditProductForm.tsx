@@ -3,7 +3,7 @@ import { Avatar, Box, Button, CircularProgress, Container, CssBaseline, Grid, Ic
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { Product, ProductListing } from '../../app/types';
+import { Product } from '../../app/types';
 import { authClear } from '../Auth/authSlice';
 import { writeProductSuccess, getProduct, productFailure, editProduct } from './productSlice';
 
