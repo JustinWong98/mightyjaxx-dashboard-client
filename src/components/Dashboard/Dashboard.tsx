@@ -21,7 +21,6 @@ export const Dashboard = () => {
     const [page, setPage] = useState(1);
     const userInfo = useAppSelector((state) => state.auth.data);
     useEffect(() => {
-        console.log(products);
         if (userInfo?.result.email && userInfo?.token) {
             dispatch(fetchProducts(page));
         } else {

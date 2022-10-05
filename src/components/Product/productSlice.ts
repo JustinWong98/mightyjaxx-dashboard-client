@@ -144,10 +144,22 @@ const productSlice = createSlice({
             .addCase(editProduct.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(editProduct.fulfilled, (state, action: PayloadAction<ProductListing[]>) => {
-                state.isLoading = false;
-                state.productList = action.payload;
-            })
+            .addCase(
+                editProduct.fulfilled,
+                (
+                    state,
+                    {
+                        payload
+                    }: PayloadAction<{
+                        productList: ProductListing[];
+                        totalPageNumber: number;
+                    }>
+                ) => {
+                    state.isLoading = false;
+                    state.totalPageNumber = payload.totalPageNumber;
+                    state.productList = payload.productList;
+                }
+            )
             .addCase(editProduct.rejected, (state, action: PayloadAction<any>) => {
                 state.isLoading = false;
                 state.error = action.payload;
