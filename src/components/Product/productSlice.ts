@@ -144,8 +144,23 @@ const productSlice = createSlice({
             .addCase(editProduct.pending, (state) => {
                 state.isLoading = true;
             })
+            .addCase(editProduct.fulfilled, (state, action: PayloadAction<ProductListing[]>) => {
+                state.isLoading = false;
+                state.productList = action.payload;
+            })
+            .addCase(editProduct.rejected, (state, action: PayloadAction<any>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(deleteProduct.rejected, (state, action: PayloadAction<any>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+            .addCase(deleteProduct.pending, (state) => {
+                state.isLoading = true;
+            })
             .addCase(
-                editProduct.fulfilled,
+                deleteProduct.fulfilled,
                 (
                     state,
                     {
@@ -159,22 +174,7 @@ const productSlice = createSlice({
                     state.totalPageNumber = payload.totalPageNumber;
                     state.productList = payload.productList;
                 }
-            )
-            .addCase(editProduct.rejected, (state, action: PayloadAction<any>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(deleteProduct.rejected, (state, action: PayloadAction<any>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(deleteProduct.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(deleteProduct.fulfilled, (state, action: PayloadAction<ProductListing[]>) => {
-                state.isLoading = false;
-                state.productList = action.payload;
-            });
+            );
     }
 });
 
