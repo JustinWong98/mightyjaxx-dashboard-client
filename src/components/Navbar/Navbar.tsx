@@ -20,7 +20,7 @@ function Navbar() {
             <Container maxWidth="lg">
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Typography variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' }, color: '#222222' }}>
-                        Mighty Jaxx Admin Board
+                        Mighty Jaxx Admin
                     </Typography>
                     {userInfo && <Typography sx={{ display: { sm: 'block' }, color: '#494949' }}>{userInfo.result.email}</Typography>}
                     <Button onClick={handleSignOut}>Sign Out</Button>
